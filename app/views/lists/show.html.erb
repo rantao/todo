@@ -1,0 +1,18 @@
+<h1>Your chosen list: <%= @list.title %></h1>
+
+<h2>Get the below done STAT!!</h2>
+
+<ol>
+	<% @list.tasks.each do |task|  %>
+	<li>
+		<%= task.item %>  
+		
+		  -  
+			  <% if task.completed %>
+				completed
+				<% else %>
+				not done yet
+			<% end %>
+		<% end %>
+	</li>
+</ol>

@@ -1,0 +1,9 @@
+<h1> Look at all this crap that we need to remember</h1>
+	<ul>
+
+	<% @lists.each do |list|  %>
+	<li>
+		<%= link_to list.title, list_path(list) %>
+		<% end %>
+	</li>
+	</ul>
