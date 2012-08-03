@@ -1,1 +1,9 @@
 <h1> Add a new list here </h1>
+
+  <div>
+    <%= form_for(@list) do |f| %>
+      <%= f.label :title, "What is the name of your List:" %>
+      <%= f.text_field :title %>
+      <%= f.submit "Create List", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>

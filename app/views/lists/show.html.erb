@@ -2,11 +2,23 @@
 
 <h2>Get the below done STAT!!</h2>
 
+<h1> Add a new task here </h1>
+
+  <div>
+    <%= form_for(@task) do |f| %>
+      <%= f.hidden_field :list_id %>
+      <%= f.hidden_field :completed %> 
+      <%= f.label :item, "Task:" %>
+      <%= f.text_field :item %>
+      <%= f.submit "Create Task", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+
+
 <ol>
 	<% @list.tasks.each do |task|  %>
 	<li>
-		<%= task.item %>  
-		
+		<%= task.item %>
 		  -  
 			  <% if task.completed %>
 				completed
