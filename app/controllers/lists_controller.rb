@@ -1,8 +1,10 @@
 class ListsController < ApplicationController
 
+	respond_to :html, :json, :xml 
 
 	def index
 		@lists = List.all
+		respond_with(@lists)
 	end
 
 
@@ -23,7 +25,7 @@ class ListsController < ApplicationController
 		@list = List.new(params[:list])
 		puts params[:list]
 		@list.save
-		redirect_to list_path(@list)
+		respond_with @list, :location => list_path(@list)
 	end
 
 

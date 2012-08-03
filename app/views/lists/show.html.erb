@@ -6,14 +6,15 @@
 
   <div>
     <%= form_for(@task) do |f| %>
-      <%= f.hidden_field :list_id %>
-      <%= f.hidden_field :completed %> 
-      <%= f.label :item, "Task:" %>
-      <%= f.text_field :item %>
-      <%= f.submit "Create Task", class: "btn btn-large btn-primary" %>
+		<%= f.hidden_field :list_id %>
+      	<%= f.hidden_field :completed %>
+      	<%= f.label :item, "Task:" %>
+      	<%= f.text_field :item %>
+      	<%= f.submit "Create Task", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 
+<h3> If we were going to let you edit your tasks, you'd edit your tasks here </h3>
 
 <ol>
 	<% @list.tasks.each do |task|  %>
