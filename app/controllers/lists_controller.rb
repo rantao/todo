@@ -13,6 +13,7 @@ class ListsController < ApplicationController
 		@task = Task.new
 		@task.list_id = @list.id
 		@task.completed = false
+		respond_with @list
 	end
 
 
@@ -40,7 +41,9 @@ class ListsController < ApplicationController
 
 
 	def destroy
-
+		@list = List.find(params[:id])
+		@list.destroy
+		respond_with @list, :location => lists_path
 	end
 
 

@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 	respond_to	:html, :json, :xml
 
 	def index
-		@tasks = Task.all
+		@tasks = Task.where(:list_id => params[:list_id])
 		respond_with(@tasks)
 	end
 
@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 	end
 
 	def show
-		
+		@task = Task.find(params[:id])
 	end
 
 	def create
@@ -28,14 +28,15 @@ class TasksController < ApplicationController
 
 	def update
 		@task = Task.find(params[:id])
-		@task.update_attributes(param[:task])
-		respond_with(@task) 
+		@task.completed = !@task.completed
+		@task.update_attributes(params[:task])
+		respond_with @task, :location => list_path(@task.list) 
 	end
 
 	def destroy
 		@task = Task.find(params[:id])
 		@task.destroy
-		respond_with(@task)
+		respond_with @task, :location => list_path(@task.list)
 	end
 
 end

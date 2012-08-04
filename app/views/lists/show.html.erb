@@ -23,9 +23,15 @@
 		  -  
 			  <% if task.completed %>
 				completed
+
 				<% else %>
 				not done yet
+
 			<% end %>
+			<%= link_to "toggle status", task_path(task), :method => :put %>
+			<%= link_to " x ", task_path(task), :method => :delete %>
 		<% end %>
 	</li>
 </ol>
+
+<%= link_to	"Back to List Land", lists_path %>

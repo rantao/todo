@@ -1,10 +1,11 @@
 <h1> Look at all this crap that we need to remember</h1>
-	<ul>
+	<ol>
 
 	<% @lists.each do |list|  %>
 	<li>
 		<%= link_to list.title, list_path(list) %>
+		<%= link_to " x ", list_path(list), :method => :delete %>
 		<% end %>
 	</li>
-	</ul>
+	</ol>
 	<%= link_to "Create a new list",  new_list_path %>
